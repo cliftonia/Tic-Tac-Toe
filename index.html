@@ -4,10 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>CB</h1>
+  <header>  
+    <h1 class="header-heading">Tic Tac Toe</h1>
+  </header>
+  <main>
+    <section class="player-container">
+      <section class="player1">
+        <h2 class="player1">Player 1</h2>
+        <h3 class="p1-win-heading">Wins: <span class="p1-games-won">0</span></h3>
+      </section>
+      <section class="player2">
+          <h2 class="player2">Player 2</h2>
+          <h3 class="p2-win-heading">Wins: <span class="p2-games-won">0</span></h3>
+      </section>
+    </section>
+      <section class="board-top">
+        <div class="box-top top-left"></div>
+        <div class="box-top top-middle"></div>
+        <div class="box-top top-right"></div>
+      </section>
+      <section class="board-middle">
+        <div class="box-middle mid-left"></div>
+        <div class="box-middle mid-mid"></div>
+        <div class="box-middle mid-right"></div>
+      </section>
+      <section class="board-bottom">
+        <div class="box-bottom bot-left"></div>
+        <div class="box-bottom bot-mid"></div>
+        <div class="box-bottom bot-right"></div>
+      </section> 
+      <section class="timer-section">
+          <h3 class="timer-heading">Timer: <span class="timer">0</span></h3>
+      </section>
+    <section class="button-section">
+      <button class="new-game btn-2 btn-2a">New Game</button>
+      <button class="reset-button btn-2 btn-2b">Reset</button>
+    </section> 
+  </main>
+  <footer>
+
+  </footer>
+  <script src="app.js"></script>
 </body>
 </html>

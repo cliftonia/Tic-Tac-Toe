@@ -1,3 +1,177 @@
 body {
-  background-color: tomato;
+  background-color: #99dfdc;
 }
+
+
+/* Here is where I have sized the boxes */
+.box-top,
+.box-middle,
+.box-bottom {
+  width: 25vmin;
+  height: 25vmin;
+  background-color: #fea5be;
+}
+
+/* I have created borders to give the game a grid */
+.box-top {
+  border-bottom: 1px solid #feccc3;
+}
+
+.box-bottom {
+  border-top: 1px solid #feccc3;
+}
+
+.box-top.top-middle,
+.box-middle.mid-mid,
+.box-bottom.bot-mid {
+  border-left: 1px solid #feccc3;
+  border-right: 1px solid #feccc3;
+}
+
+div {
+  font-size: 16rem;
+}
+
+/* here is where I have used flex container to great the grid as well as center the game */
+.board-top {
+  display: flex;
+  justify-content: center;
+}
+
+.board-middle {
+  display: flex;
+  justify-content: center;
+}
+
+.board-bottom {
+  display: flex;
+  justify-content: center; 
+}
+
+/* Centering the the Naughts and crosses */
+.box-top.top-left,
+.box-top.top-middle,
+.box-top.top-right,
+.box-middle.mid-left,
+.box-middle.mid-mid,
+.box-middle.mid-right,
+.box-bottom.bot-left,
+.box-bottom.bot-mid,
+.box-bottom.bot-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-heading {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #cb4e4e;
+  text-transform: uppercase;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.reset-button,
+.new-game {
+  border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-2 {
+  background: #cb4e4e;
+  color: #fff;
+  box-shadow: 0 6px #ab3c3c;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+.btn-2b,
+.btn-2a {
+  border-radius: 0 0 5px 5px;
+}
+
+.new-game:before, 
+.reset-button:before, 
+.icon-heart:after, 
+.icon-star:after, 
+.icon-plus:after, 
+.icon-file:before {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+.new-game:after,
+.reset-button:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.player-container {
+  display: flex;
+  justify-content: center;
+}
+
+.player1 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  text-transform: uppercase;
+  color: midnightblue;
+}
+
+.p1-win-heading,
+.p2-win-heading {
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  text-transform: uppercase;
+  color: midnightblue;
+}
+
+.player2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  text-transform: uppercase;
+  color: midnightblue;
+}
+
+.timer-heading {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+} 
