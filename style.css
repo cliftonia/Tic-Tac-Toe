@@ -147,8 +147,6 @@ div {
 .player1 {
   display: flex;
   justify-content: center;
-  padding-bottom: 1rem;
-  padding-right: 1rem;
   text-transform: uppercase;
   color: midnightblue;
 }

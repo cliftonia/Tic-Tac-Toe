@@ -20,11 +20,11 @@ p2Score = document.querySelector('.p2-games-won')
 whoWon = document.querySelector('.header-heading')
 
 var displayPlayer1Win = function () {
-  whoWon = whoWon.textContent = 'Player 1 Wins'
+  whoWon.textContent = 'Player 1 Wins'
 }
 
 var displayPlayer2Win = function () {
-  whoWon = whoWon.textContent = 'Player 2 Wins'
+  whoWon.textContent = 'Player 2 Wins'
 }
 
 // Here is where I will create an timeOut function
@@ -60,18 +60,21 @@ var resetBoard = function () {
   midRows.forEach( function (row) { row.textContent = ''}) 
   botRows.forEach( function (row) { row.textContent = ''})
   crossWinToprow = 0
-  crossWinLeftColumn = 0
-  crossWinDiagLeft = 0
-  crossWinDiagRight = 0
+  crossWinMidRow = 0
   crossWinBotRow = 0
+  crossWinLeftColumn = 0
   crossWinRightColumn = 0
   crossWinMidColumn = 0
+  crossWinDiagLeft = 0
+  crossWinDiagRight = 0
   naughtWinTopRow = 0
-  naughtWinLeftColumn = 0
-  naughtWinDiagLeft = 0
+  naughtWinMidRow = 0
   naughtWinBotRow = 0
+  naughtWinLeftColumn = 0
+  naughtWinMidColumn = 0
   naughtWinRightColumn = 0
-  naughtWinMidColumn = 0 
+  naughtWinDiagLeft = 0
+  naughtWinDiagRight = 0
 }
 
 var resetBoardBtn = function () {
@@ -79,21 +82,23 @@ var resetBoardBtn = function () {
   midRows.forEach( function (row) { row.textContent = ''}) 
   botRows.forEach( function (row) { row.textContent = ''})
   crossWinToprow = 0
-  crossWinLeftColumn = 0
-  crossWinDiagLeft = 0
-  crossWinDiagRight = 0
+  crossWinMidRow = 0
   crossWinBotRow = 0
+  crossWinLeftColumn = 0
   crossWinRightColumn = 0
   crossWinMidColumn = 0
+  crossWinDiagLeft = 0
+  crossWinDiagRight = 0
   naughtWinTopRow = 0
-  naughtWinLeftColumn = 0
-  naughtWinDiagLeft = 0
+  naughtWinMidRow = 0
   naughtWinBotRow = 0
+  naughtWinLeftColumn = 0
+  naughtWinMidColumn = 0
   naughtWinRightColumn = 0
-  naughtWinMidColumn = 0 
+  naughtWinDiagLeft = 0
+  naughtWinDiagRight = 0
   document.querySelector('.header-heading').textContent = 'Tic Tac Toe'
 }
-
 
 // Now creating the Functions for the naughts
 
