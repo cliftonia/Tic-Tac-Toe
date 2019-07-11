@@ -28,6 +28,7 @@ var originalH1 = function () {
 
 var displayPlayer1Win = function () {
   whoWon.textContent = 'Player 1 Wins'
+  
   document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
@@ -104,22 +105,23 @@ var highlightDraw = function () {
 }
 
 var checkWin = function () {
+  // console.log("Hello darkness my old friend");
   winCombinations.forEach( function (winCombination) {
     // winCombination is referencing each index value of the arrays within the array in the winCombinations Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
     if (board[winCombination[0]].innerHTML === 'X' && 
     board[winCombination[1]].innerHTML === 'X' &&
     board[winCombination[2]].innerHTML === 'X'
     ) { 
-      displayPlayer1Win()
       p1Score.textContent = Number(p1Score.textContent) + 1
+      displayPlayer1Win()
       highlightWinCom(winCombination)
       setTimeout(resetBoard, 1000)
     } else if (board[winCombination[0]].innerHTML === 'O' &&
     board[winCombination[1]].innerHTML === 'O' &&
     board[winCombination[2]].innerHTML === 'O'
     ) { 
-      displayPlayer2Win()
       p2Score.textContent = Number(p2Score.textContent) + 1
+      displayPlayer2Win()
       highlightWinCom(winCombination)
       setTimeout(resetBoard, 1000)
     } 
@@ -134,6 +136,13 @@ var checkWin = function () {
 // these event listeners are for playing naughts or crosses
 
 var turn = "X"
+
+//  if (turn === 'X') {
+//     document.querySelector('.player1').style.backgroundColor = '#76DE76'
+//   } else if (turn === 'O') {
+//     document.querySelector('.player2').style.backgroundColor = '#76DE76'
+//   }
+
 
 var playTurn = function (event) {
   // check if the box is empty
