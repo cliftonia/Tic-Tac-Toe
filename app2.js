@@ -48,12 +48,22 @@ var topRows = document.querySelectorAll('.box-top')
 var midRows = document.querySelectorAll('.box-middle')
 var botRows = document.querySelectorAll('.box-bottom')
 var resetBtn = document.querySelector('.reset-button')
+var newGameBtn = document.querySelector('.new-game')
 
 var resetBoardBtn = function () {
   topRows.forEach( function (row) { row.textContent = ''}) 
   midRows.forEach( function (row) { row.textContent = ''}) 
   botRows.forEach( function (row) { row.textContent = ''})
   counter = 0
+}
+
+var newGame = function () {
+  topRows.forEach( function (row) { row.textContent = ''}) 
+  midRows.forEach( function (row) { row.textContent = ''}) 
+  botRows.forEach( function (row) { row.textContent = ''})
+  counter = 0
+  p1Score.textContent = 0
+  p2Score.textContent = 0
 }
 
 var resetBoard = function () {
@@ -63,24 +73,38 @@ var resetBoard = function () {
   counter = 0
 }
 
+
+
 // here I have added the winning combinations into an array as well as the rules
 
 var board = document.querySelectorAll('.square')
 
 var winCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
+playersWinCombinations = []
+
 counter = 0
-var hasWon = false
+
+var highlightWinCom = function (indexes) { // [0,1,2]
+
+ indexes.forEach( function (index) {
+
+  var squares = document.querySelectorAll('.square')
+  squares[index].style.backgroundColor = '#76DE76'
+ }) 
+}
 
 var checkWin = function () {
   winCombinations.forEach( function (winCombination) {
-    if (board[winCombination[0]].innerHTML === 'X' && // winCombination is referencing each index value of the arrays within the array in the winCombinations Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
+    // winCombination is referencing each index value of the arrays within the array in the winCombinations Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
+    if (board[winCombination[0]].innerHTML === 'X' && 
     board[winCombination[1]].innerHTML === 'X' &&
     board[winCombination[2]].innerHTML === 'X'
     ) { 
       displayPlayer1Win()
       p1Score.textContent = Number(p1Score.textContent) + 1
       resetBoard()
+      highlightWinCom(winCombination)
     } else if (board[winCombination[0]].innerHTML === 'O' &&
     board[winCombination[1]].innerHTML === 'O' &&
     board[winCombination[2]].innerHTML === 'O'
@@ -140,6 +164,7 @@ botRightBox.addEventListener('click', playTurn)
 // here is the event listeners for the buttons 
 
 resetBtn.addEventListener('click', resetBoardBtn)
+newGameBtn.addEventListener('click', newGame)
 
 // function () {
 //   if (turn === 'X') {
