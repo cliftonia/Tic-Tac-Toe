@@ -21,15 +21,24 @@ whoWon = document.querySelector('.header-heading')
 
 var originalH1 = function () {
   document.querySelector('.header-heading').textContent = 'Tic Tac Toe'
+  document.querySelector('.header-heading').style.backgroundColor = 'mistyrose'
 }
 
 var displayPlayer1Win = function () {
   whoWon.textContent = 'Player 1 Wins'
+  document.querySelector('.header-heading').style.backgroundColor = 'green'
   setTimeout(originalH1, 1000);
 }
 
 var displayPlayer2Win = function () {
   whoWon.textContent = 'Player 2 Wins'
+  document.querySelector('.header-heading').style.backgroundColor = 'green'
+  setTimeout(originalH1, 1000);
+}
+
+var displayDraw = function () {
+  whoWon.textContent = 'Draw'
+  document.querySelector('.header-heading').style.backgroundColor = 'yellow'
   setTimeout(originalH1, 1000);
 }
 
@@ -44,153 +53,102 @@ var resetBoardBtn = function () {
   topRows.forEach( function (row) { row.textContent = ''}) 
   midRows.forEach( function (row) { row.textContent = ''}) 
   botRows.forEach( function (row) { row.textContent = ''})
+  counter = 0
 }
 
 var resetBoard = function () {
   topRows.forEach( function (row) { row.textContent = ''}) 
   midRows.forEach( function (row) { row.textContent = ''}) 
   botRows.forEach( function (row) { row.textContent = ''})
+  counter = 0
 }
 
 // here I have added the winning combinations into an array as well as the rules
 
 var board = document.querySelectorAll('.square')
 
-var winCombo = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+var winCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
+counter = 0
+var hasWon = false
 
 var checkWin = function () {
-  winCombo.forEach( function (winCom) {
-    if (board[winCom[0]].innerHTML === 'X' && // winCom is referencing each index value of the arrays within the array in the winCombo Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
-    board[winCom[1]].innerHTML === 'X' &&
-    board[winCom[2]].innerHTML === 'X'
+  winCombinations.forEach( function (winCombination) {
+    if (board[winCombination[0]].innerHTML === 'X' && // winCombination is referencing each index value of the arrays within the array in the winCombinations Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
+    board[winCombination[1]].innerHTML === 'X' &&
+    board[winCombination[2]].innerHTML === 'X'
     ) { 
       displayPlayer1Win()
       p1Score.textContent = Number(p1Score.textContent) + 1
       resetBoard()
-    } else if (board[winCom[0]].innerHTML === 'O' &&
-    board[winCom[1]].innerHTML === 'O' &&
-    board[winCom[2]].innerHTML === 'O'
+    } else if (board[winCombination[0]].innerHTML === 'O' &&
+    board[winCombination[1]].innerHTML === 'O' &&
+    board[winCombination[2]].innerHTML === 'O'
     ) { 
       displayPlayer2Win()
       p2Score.textContent = Number(p2Score.textContent) + 1
       resetBoard()
     } 
   }) 
+  if (counter === 9) {
+    displayDraw()
+    resetBoard()
+}
 }
 
 // these event listeners are for playing naughts or crosses
 
 var turn = "X"
 
-topLeftBox.addEventListener('click', function () {
+var playTurn = function (event) {
+  // check if the box is empty
+  if (event.target.textContent !== "") {
+    return
+  }
+  counter += 1
   if (turn === 'X') {
-    topLeftBox.textContent = 'X'
+    event.target.textContent = 'X'
     setTimeout(checkWin, 1000)
     turn = 'O'
   } else if (turn === 'O') {
-    topLeftBox.textContent = 'O'
+    event.target.textContent = 'O'
     setTimeout(checkWin, 1000)
     turn = 'X'
-  }
-})
+  } 
+}
 
-topMidBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    topMidBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    topMidBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
 
-topRightBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    topRightBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    topRightBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
 
-midLeftBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    midLeftBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    midLeftBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+topLeftBox.addEventListener('click', playTurn)
 
-midCenterBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    midCenterBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    midCenterBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+topMidBox.addEventListener('click', playTurn)
 
-midRightBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    midRightBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    midRightBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+topRightBox.addEventListener('click', playTurn)
 
-botLeftBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    botLeftBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    botLeftBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+midLeftBox.addEventListener('click', playTurn)
 
-botMidBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    botMidBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    botMidBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+midCenterBox.addEventListener('click', playTurn)
 
-botRightBox.addEventListener('click', function () {
-  if (turn === 'X') {
-    botRightBox.textContent = 'X'
-    setTimeout(checkWin, 1000)
-    turn = 'O'
-  } else if (turn === 'O') {
-    botRightBox.textContent = 'O'
-    setTimeout(checkWin, 1000)
-    turn = 'X'
-  }
-})
+midRightBox.addEventListener('click', playTurn)
+
+botLeftBox.addEventListener('click', playTurn)
+
+botMidBox.addEventListener('click', playTurn)
+
+botRightBox.addEventListener('click', playTurn)
 
 // here is the event listeners for the buttons 
 
 resetBtn.addEventListener('click', resetBoardBtn)
+
+// function () {
+//   if (turn === 'X') {
+//     botRightBox.textContent = 'X'
+//     setTimeout(checkWin, 1000)
+//     turn = 'O'
+//   } else if (turn === 'O') {
+//     botRightBox.textContent = 'O'
+//     setTimeout(checkWin, 1000)
+//     turn = 'X'
+//   }
+// })

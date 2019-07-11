@@ -66,9 +66,12 @@ div {
 .header-heading {
   text-align: center;
   padding: 1rem;
+  margin-left: 29.5%;
+  margin-right: 29.5%;
   font-size: 2rem;
   color: #cb4e4e;
   text-transform: uppercase;
+  background-color: mistyrose;
 }
 
 .button-section {
@@ -168,8 +171,33 @@ div {
   color: midnightblue;
 }
 
+.player1,
+.p1-win-heading,
+.p2-win-heading,
+.player2 {
+  padding: 1rem;
+}
+
 .timer-heading {
   display: flex;
   justify-content: center;
   padding: 1rem;
 } 
+
+@media only screen and (max-width: 720px) {
+  div {
+    font-size: 8rem;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  div {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  div {
+    font-size: 2rem;
+  }
+}
