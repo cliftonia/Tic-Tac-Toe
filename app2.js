@@ -1,3 +1,5 @@
+var allSquares = document.querySelectorAll('.square')
+
 // Top Row
 var topLeftBox = document.querySelector('.box-top.top-left')
 var topMidBox = document.querySelector('.box-top.top-middle')
@@ -26,19 +28,19 @@ var originalH1 = function () {
 
 var displayPlayer1Win = function () {
   whoWon.textContent = 'Player 1 Wins'
-  document.querySelector('.header-heading').style.backgroundColor = 'green'
+  document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
 
 var displayPlayer2Win = function () {
   whoWon.textContent = 'Player 2 Wins'
-  document.querySelector('.header-heading').style.backgroundColor = 'green'
+  document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
 
 var displayDraw = function () {
   whoWon.textContent = 'Draw'
-  document.querySelector('.header-heading').style.backgroundColor = 'yellow'
+  document.querySelector('.header-heading').style.backgroundColor = '#fdfd96'
   setTimeout(originalH1, 1000);
 }
 
@@ -51,29 +53,30 @@ var resetBtn = document.querySelector('.reset-button')
 var newGameBtn = document.querySelector('.new-game')
 
 var resetBoardBtn = function () {
-  topRows.forEach( function (row) { row.textContent = ''}) 
-  midRows.forEach( function (row) { row.textContent = ''}) 
-  botRows.forEach( function (row) { row.textContent = ''})
+  allSquares.forEach( function (square) {
+    square.style.backgroundColor = '#fea5be'
+    square.textContent = ''
+  })
   counter = 0
 }
 
 var newGame = function () {
-  topRows.forEach( function (row) { row.textContent = ''}) 
-  midRows.forEach( function (row) { row.textContent = ''}) 
-  botRows.forEach( function (row) { row.textContent = ''})
+  allSquares.forEach( function (square) {
+    square.style.backgroundColor = '#fea5be'
+    square.textContent = ''
+  })
   counter = 0
   p1Score.textContent = 0
   p2Score.textContent = 0
 }
 
 var resetBoard = function () {
-  topRows.forEach( function (row) { row.textContent = ''}) 
-  midRows.forEach( function (row) { row.textContent = ''}) 
-  botRows.forEach( function (row) { row.textContent = ''})
+  allSquares.forEach( function (square) {
+    square.style.backgroundColor = '#fea5be'
+    square.textContent = ''
+  })
   counter = 0
 }
-
-
 
 // here I have added the winning combinations into an array as well as the rules
 
@@ -94,6 +97,12 @@ var highlightWinCom = function (indexes) { // [0,1,2]
  }) 
 }
 
+var highlightDraw = function () {
+  allSquares.forEach( function (square) {
+    square.style.backgroundColor = '#fdfd96'
+  })
+}
+
 var checkWin = function () {
   winCombinations.forEach( function (winCombination) {
     // winCombination is referencing each index value of the arrays within the array in the winCombinations Variable and checking to see if it contains a X allowing me for future to add more winning combinations when i increase the arrays
@@ -103,20 +112,22 @@ var checkWin = function () {
     ) { 
       displayPlayer1Win()
       p1Score.textContent = Number(p1Score.textContent) + 1
-      resetBoard()
       highlightWinCom(winCombination)
+      setTimeout(resetBoard, 1000)
     } else if (board[winCombination[0]].innerHTML === 'O' &&
     board[winCombination[1]].innerHTML === 'O' &&
     board[winCombination[2]].innerHTML === 'O'
     ) { 
       displayPlayer2Win()
       p2Score.textContent = Number(p2Score.textContent) + 1
-      resetBoard()
+      highlightWinCom(winCombination)
+      setTimeout(resetBoard, 1000)
     } 
   }) 
   if (counter === 9) {
     displayDraw()
-    resetBoard()
+    highlightDraw()
+    setTimeout(resetBoard, 1000)
 }
 }
 
