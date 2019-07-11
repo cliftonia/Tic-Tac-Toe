@@ -29,7 +29,8 @@ body {
 }
 
 div {
-  font-size: 16rem;
+  /* font-size: 16rem; */
+  font-size: 31vmin;
 }
 
 /* here is where I have used flex container to great the grid as well as center the game */
@@ -184,7 +185,7 @@ div {
   padding: 1rem;
 } 
 
-@media only screen and (max-width: 720px) {
+/* @media only screen and (max-width: 720px) {
   div {
     font-size: 8rem;
   }
@@ -200,4 +201,4 @@ div {
   div {
     font-size: 2rem;
   }
-}
+} */
