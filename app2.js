@@ -112,6 +112,7 @@ var checkWin = function () {
     board[winCombination[1]].innerHTML === 'X' &&
     board[winCombination[2]].innerHTML === 'X'
     ) { 
+      console.log('test')
       p1Score.textContent = Number(p1Score.textContent) + 1
       displayPlayer1Win()
       highlightWinCom(winCombination)
@@ -149,16 +150,20 @@ var playTurn = function (event) {
   if (event.target.textContent !== "") {
     return
   }
+  
   counter += 1
+
   if (turn === 'X') {
     event.target.textContent = 'X'
-    setTimeout(checkWin, 1000)
+    // setTimeout(checkWin, 1000)
     turn = 'O'
   } else if (turn === 'O') {
     event.target.textContent = 'O'
-    setTimeout(checkWin, 1000)
+    // setTimeout(checkWin, 1000)
     turn = 'X'
   } 
+  
+  checkWin()
 }
 
 
