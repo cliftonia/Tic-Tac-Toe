@@ -77,6 +77,7 @@ var resetBoard = function () {
     square.textContent = ''
   })
   counter = 0
+  highlightWhosTurnItIs()
 }
 
 // here I have added the winning combinations into an array as well as the rules
@@ -88,21 +89,6 @@ var winCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,
 playersWinCombinations = []
 
 counter = 0
-
-var highlightWinCom = function (indexes) { // [0,1,2]
-
- indexes.forEach( function (index) {
-
-  var squares = document.querySelectorAll('.square')
-  squares[index].style.backgroundColor = '#76DE76'
- }) 
-}
-
-var highlightDraw = function () {
-  allSquares.forEach( function (square) {
-    square.style.backgroundColor = '#fdfd96'
-  })
-}
 
 var checkWin = function () {
   // console.log("Hello darkness my old friend");
@@ -145,28 +131,60 @@ var turn = "X"
 //   }
 
 
+
 var playTurn = function (event) {
   // check if the box is empty
   if (event.target.textContent !== "") {
     return
   }
-  
+  // highlightWhosTurnItIs()
   counter += 1
 
   if (turn === 'X') {
     event.target.textContent = 'X'
-    // setTimeout(checkWin, 1000)
+    highlightWhosTurnItIs()
     turn = 'O'
-  } else if (turn === 'O') {
+  } else {
     event.target.textContent = 'O'
-    // setTimeout(checkWin, 1000)
+    highlightWhosTurnItIs()
     turn = 'X'
-  } 
-  
+  }
+
   checkWin()
 }
 
+// here are all my animations
+var highlightWhosTurnItIs = function () {
+  if (turn === 'X') {
+    document.querySelector('.player1').style.backgroundColor = '#99DFDC'
+    document.querySelector('.player2').style.backgroundColor = '#fdfd96'
+  }  
+  if (turn === 'O') {
+    document.querySelector('.player2').style.backgroundColor = '#99DFDC'
+    document.querySelector('.player1').style.backgroundColor = '#fdfd96'
+  }
+}
 
+// initialise to show player 1 goes first
+document.querySelector('.player2').style.backgroundColor = '#99DFDC'
+document.querySelector('.player1').style.backgroundColor = '#fdfd96'
+
+var highlightWinCom = function (indexes) { // [0,1,2]
+
+  indexes.forEach( function (index) {
+ 
+   var squares = document.querySelectorAll('.square')
+   squares[index].style.backgroundColor = '#76DE76'
+  }) 
+ }
+ 
+ var highlightDraw = function () {
+   allSquares.forEach( function (square) {
+     square.style.backgroundColor = '#fdfd96'
+   })
+ }
+
+// here are all my event listeners
 
 topLeftBox.addEventListener('click', playTurn)
 
@@ -190,15 +208,3 @@ botRightBox.addEventListener('click', playTurn)
 
 resetBtn.addEventListener('click', resetBoardBtn)
 newGameBtn.addEventListener('click', newGame)
-
-// function () {
-//   if (turn === 'X') {
-//     botRightBox.textContent = 'X'
-//     setTimeout(checkWin, 1000)
-//     turn = 'O'
-//   } else if (turn === 'O') {
-//     botRightBox.textContent = 'O'
-//     setTimeout(checkWin, 1000)
-//     turn = 'X'
-//   }
-// })

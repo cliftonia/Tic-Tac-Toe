@@ -147,6 +147,7 @@ div {
 .player-container {
   display: flex;
   justify-content: center;
+  margin: 2vmin;
 }
 
 .player1 {
@@ -155,6 +156,8 @@ div {
   text-transform: uppercase;
   color: midnightblue;
 }
+
+margin: 2vmin;
 
 .p1-win-heading,
 .p2-win-heading {
