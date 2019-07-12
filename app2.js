@@ -190,9 +190,7 @@ document.querySelector('.player2').style.backgroundColor = '#99DFDC'
 document.querySelector('.player1').style.backgroundColor = '#fdfd96'
 
 var highlightWinCom = function (indexes) { // [0,1,2]
-
   indexes.forEach( function (index) {
- 
    var squares = document.querySelectorAll('.square')
    squares[index].style.backgroundColor = '#76DE76'
   }) 
