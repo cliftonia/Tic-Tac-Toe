@@ -15,6 +15,30 @@ var botLeftBox = document.querySelector('.box-bottom.bot-left')
 var botMidBox = document.querySelector('.box-bottom.bot-mid')
 var botRightBox = document.querySelector('.box-bottom.bot-right')
 
+// Input buttons
+var player1Input = document.querySelector('.player1-input')
+var player2Input = document.querySelector('.player2-input')
+
+var player1Btn = document.querySelector('.change-player1-btn')
+var player2Btn = document.querySelector('.change-player2-btn')
+
+var player1Name = 'Player 1' 
+var player2Name = 'Player 2'
+
+var changePlayer1Name = function () {
+  player1Name = document.querySelector('h2.player1').textContent = player1Input.value
+}
+
+var changePlayer2Name = function () {
+  player2Name = document.querySelector('h2.player2').textContent = player2Input.value
+}
+
+player1Btn.addEventListener('click', changePlayer1Name)
+player2Btn.addEventListener('click', changePlayer2Name)
+
+// document.querySelector('h2.player1').textContent = player1Input.value
+
+
 // Display Winner Functions 
 p1Score = document.querySelector('.p1-games-won')
 p2Score = document.querySelector('.p2-games-won')
@@ -27,14 +51,14 @@ var originalH1 = function () {
 }
 
 var displayPlayer1Win = function () {
-  whoWon.textContent = 'Player 1 Wins'
+  whoWon.textContent = player1Name + ' Wins'
   whoWon.classList.add('animated', 'flash')
   document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
 
 var displayPlayer2Win = function () {
-  whoWon.textContent = 'Player 2 Wins'
+  whoWon.textContent = player2Name + ' Wins'
   whoWon.classList.add('animated', 'flash')
   document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
