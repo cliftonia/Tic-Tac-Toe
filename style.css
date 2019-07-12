@@ -67,8 +67,8 @@ div {
 .header-heading {
   text-align: center;
   padding: 1rem;
-  margin-left: 29.5%;
-  margin-right: 29.5%;
+  /* margin-left: 29.5%;
+  margin-right: 29.5%; */
   font-size: 2rem;
   /* font-size: 9vmin; */
   color: #cb4e4e;
