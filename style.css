@@ -90,9 +90,12 @@ div {
     color: inherit;
     background: none;
     cursor: pointer;
-    padding: 25px 80px;
+    padding: 6.25vmin 20vmin;
+    /* padding: 25px 80px; */
     display: inline-block;
-    margin: 15px 30px;
+    /* margin: 15px 30px; */
+    /* margin: 3.75vmin 7.5vmin; */
+    margin: 2.75vmin 0.5vmin;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -114,7 +117,8 @@ div {
 
 .btn-2b,
 .btn-2a {
-  border-radius: 0 0 5px 5px;
+  /* border-radius: 0 0 5px 5px; */
+  border-radius: 0 0 1.25vmin 1.25vmin;
 }
 
 .new-game:before, 
@@ -260,8 +264,9 @@ margin:0.4em auto;
     font-size: 8rem;
   }
 }
+*/
 
-@media only screen and (max-width: 380px) {
+/* @media only screen and (max-width: 380px) {
   div {
     font-size: 4rem;
   }
@@ -271,4 +276,4 @@ margin:0.4em auto;
   div {
     font-size: 2rem;
   }
-} */
+}  */
