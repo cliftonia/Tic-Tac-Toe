@@ -77,7 +77,7 @@ var resetBoard = function () {
     square.textContent = ''
   })
   counter = 0
-  highlightWhosTurnItIs()
+  // highlightWhosTurnItIs()
 }
 
 // here I have added the winning combinations into an array as well as the rules
