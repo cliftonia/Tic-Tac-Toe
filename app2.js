@@ -22,6 +22,8 @@ var player2Input = document.querySelector('.player2-input')
 var player1Btn = document.querySelector('.change-player1-btn')
 var player2Btn = document.querySelector('.change-player2-btn')
 
+
+// Change Player functions 
 var player1Name = 'Player 1' 
 var player2Name = 'Player 2'
 
@@ -36,10 +38,8 @@ var changePlayer2Name = function () {
 player1Btn.addEventListener('click', changePlayer1Name)
 player2Btn.addEventListener('click', changePlayer2Name)
 
-// document.querySelector('h2.player1').textContent = player1Input.value
 
-
-// Display Winner Functions 
+// Display Winner Functions and Draw Functions 
 p1Score = document.querySelector('.p1-games-won')
 p2Score = document.querySelector('.p2-games-won')
 
@@ -95,6 +95,8 @@ var newGame = function () {
   counter = 0
   p1Score.textContent = 0
   p2Score.textContent = 0
+  player1Name = "Player 1"
+  player2Name = "Player 2"
 }
 
 var resetBoard = function () {

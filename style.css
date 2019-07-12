@@ -1,7 +1,11 @@
-body {
-  background-color: #99dfdc;
+html {
+  display: flex;
 }
 
+body {
+  background-color: #99dfdc;
+  margin: 0 auto;
+}
 
 /* Here is where I have sized the boxes */
 .box-top,
@@ -163,8 +167,6 @@ div {
   color: midnightblue;
 }
 
-margin: 2vmin;
-
 .p1-win-heading,
 .p2-win-heading {
   padding-bottom: 1rem;
@@ -199,7 +201,8 @@ margin: 2vmin;
   background-color: mistyrose;
 }
 
-.inputs {
+.inputs,
+.inputs2 {
   display: flex;
   justify-content: center;
 }
@@ -219,13 +222,21 @@ margin: 2vmin;
   text-transform: uppercase;
 }
 
-div.inputs {
+div.inputs,
+div.inputs2 {
   padding: 1vmin;
 }
 
 .player1-input,
 .player2-input {
-  padding: 1vmin;
+  padding: 0.5vmin;
+  width: 33vmin;
+}
+
+input.player1-input,
+input.player2-input {
+  /* height: 1vmin;
+  width: 1vmin; */
 }
 
 .change-player1-btn,
@@ -248,14 +259,14 @@ position:relative;
 
 .change-player1-btn,
 .change-player2-btn {
-top:0.1em;
+top: 0.5vmin;
 }
 
 @media all and (max-width:30em){
 .change-player1-btn,
 .change-player2-btn {
 display:block;
-margin:0.4em auto;
+/* margin:0.4em auto; */
  }
 }
 
