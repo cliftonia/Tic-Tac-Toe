@@ -28,19 +28,21 @@ var originalH1 = function () {
 
 var displayPlayer1Win = function () {
   whoWon.textContent = 'Player 1 Wins'
-  
+  whoWon.classList.add('animated', 'flash')
   document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
 
 var displayPlayer2Win = function () {
   whoWon.textContent = 'Player 2 Wins'
+  whoWon.classList.add('animated', 'flash')
   document.querySelector('.header-heading').style.backgroundColor = '#76DE76'
   setTimeout(originalH1, 1000);
 }
 
 var displayDraw = function () {
   whoWon.textContent = 'Draw'
+  whoWon.classList.add('animated', 'flash')
   document.querySelector('.header-heading').style.backgroundColor = '#fdfd96'
   setTimeout(originalH1, 1000);
 }
@@ -76,8 +78,8 @@ var resetBoard = function () {
     square.style.backgroundColor = '#fea5be'
     square.textContent = ''
   })
+  whoWon.classList.remove('animated', 'flash')
   counter = 0
-  // highlightWhosTurnItIs()
 }
 
 // here I have added the winning combinations into an array as well as the rules
@@ -123,14 +125,6 @@ var checkWin = function () {
 // these event listeners are for playing naughts or crosses
 
 var turn = "X"
-
-//  if (turn === 'X') {
-//     document.querySelector('.player1').style.backgroundColor = '#76DE76'
-//   } else if (turn === 'O') {
-//     document.querySelector('.player2').style.backgroundColor = '#76DE76'
-//   }
-
-
 
 var playTurn = function (event) {
   // check if the box is empty
