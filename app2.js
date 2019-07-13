@@ -122,6 +122,14 @@ var plusCounter = function () {
   counter = counter + 1
 }
 
+var checkDraw = function () {
+  if (counter === 9) {
+    displayDraw()
+    highlightDraw()
+    setTimeout(resetBoard, 1000)
+}
+}
+
 var checkWin = function () {
   // console.log("Hello darkness my old friend");
   winCombinations.forEach( function (winCombination) {
@@ -134,6 +142,7 @@ var checkWin = function () {
       p1Score.textContent = Number(p1Score.textContent) + 1
       displayPlayer1Win()
       highlightWinCom(winCombination)
+      counter = 0
       setTimeout(resetBoard, 1000)
     } else if (board[winCombination[0]].innerHTML === 'O' &&
     board[winCombination[1]].innerHTML === 'O' &&
@@ -142,9 +151,11 @@ var checkWin = function () {
       p2Score.textContent = Number(p2Score.textContent) + 1
       displayPlayer2Win()
       highlightWinCom(winCombination)
+      counter = 0
       setTimeout(resetBoard, 1000)
     } 
   }) 
+  // setInterval(checkDraw,3000)
   if (counter === 9) {
     displayDraw()
     highlightDraw()
@@ -162,8 +173,8 @@ var playTurn = function (event) {
     return
   }
   // highlightWhosTurnItIs()
-  // counter += 1
-  setTimeout(plusCounter, 500) 
+  counter += 1
+  // setTimeout(plusCounter, 100) 
 
   if (turn === 'X') {
     event.target.textContent = 'X'
