@@ -118,6 +118,10 @@ playersWinCombinations = []
 
 counter = 0
 
+var plusCounter = function () {
+  counter = counter + 1
+}
+
 var checkWin = function () {
   // console.log("Hello darkness my old friend");
   winCombinations.forEach( function (winCombination) {
@@ -158,7 +162,8 @@ var playTurn = function (event) {
     return
   }
   // highlightWhosTurnItIs()
-  counter += 1
+  // counter += 1
+  setTimeout(plusCounter, 500) 
 
   if (turn === 'X') {
     event.target.textContent = 'X'
@@ -195,7 +200,6 @@ var highlightWinCom = function (indexes) { // [0,1,2]
    squares[index].style.backgroundColor = '#76DE76'
   }) 
  }
- 
  var highlightDraw = function () {
    allSquares.forEach( function (square) {
      square.style.backgroundColor = '#fdfd96'

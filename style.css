@@ -199,6 +199,7 @@ div {
 
 .settings {
   background-color: mistyrose;
+  /* display: none; */
 }
 
 .inputs,
