@@ -35,4 +35,4 @@ Styling:
 
 Improvements:
 
-When a winner is announced the game can be confusing with the colors 
+When a winner is announced the game can be confusing with the colors.

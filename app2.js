@@ -217,6 +217,7 @@ var highlightWinCom = function (indexes) { // [0,1,2]
    })
  }
 
+
 // here are all my event listeners
 
 topLeftBox.addEventListener('click', playTurn)
